@@ -1,7 +1,4 @@
-import {
-  CUSTOM_THEME_NAME_MAX_LENGTH,
-  type CustomTheme,
-} from './customThemePreferences';
+import { CUSTOM_THEME_NAME_MAX_LENGTH, type CustomTheme } from './customThemePreferences';
 import {
   DEFAULT_DICE_DESIGN,
   DEFAULT_FACE_TEXTS,
@@ -38,7 +35,7 @@ export interface ThemePreset {
 export const THEME_PRESETS = [
   {
     id: 'default',
-    name: 'デフォルトテーマ',
+    name: 'デフォルト',
     faceTexts: DEFAULT_FACE_TEXTS,
     faceColors: {
       1: '#ffffff',

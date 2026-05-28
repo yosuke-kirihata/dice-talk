@@ -110,7 +110,7 @@ export const ThemeSelectDialog = ({
           </button>
         </div>
 
-        <section className="theme-select-grid" aria-labelledby="theme-list-title">
+        <section key={themeTab} className="theme-select-grid" aria-labelledby="theme-list-title">
           <h3 id="theme-list-title" className="theme-select-section-title">
             テーマ一覧
           </h3>

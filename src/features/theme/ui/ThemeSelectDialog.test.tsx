@@ -37,7 +37,7 @@ describe('ThemeSelectDialog', () => {
   it('does not show preset themes on the my theme tab when the list is empty', () => {
     renderDialog();
 
-    expect(screen.queryByRole('button', { name: 'デフォルトテーマを選択' })).not.toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: 'デフォルトを選択' })).not.toBeInTheDocument();
     expect(screen.getByRole('button', { name: '新しいテーマを作る' })).toBeInTheDocument();
   });
 
@@ -73,7 +73,7 @@ describe('ThemeSelectDialog', () => {
     const user = userEvent.setup();
     const props = renderDialog({ themeTab: 'preset', activeThemeId: 'default' });
 
-    expect(screen.getByRole('button', { name: 'デフォルトテーマを選択' })).toHaveAttribute(
+    expect(screen.getByRole('button', { name: 'デフォルトを選択' })).toHaveAttribute(
       'aria-pressed',
       'true',
     );
