@@ -1,0 +1,88 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Build / cache
+node_modules
+dist
+dist-ssr
+.vite
+coverage
+*.local
+*.tsbuildinfo
+
+# Tooling
+.playwright-mcp/
+*.png
+!public/**/*.png
+!docs/**/*.png
+# iOS の AppIcon / Splash は Capacitor 生成のデフォルト資産で、clone 後の `cap sync ios` 〜
+# xcodebuild に必要なためコミット対象に残す。
+!ios/**/*.png
+# Android の launcher / splash も Capacitor 生成のデフォルト資産で、clone 後の
+# Gradle build に必要なためコミット対象に残す。
+!android/**/*.png
+
+# Env files
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Capacitor (iOS) — `cap sync` / xcodebuild が生成する一時ファイル。
+# プラットフォームの `ios/.gitignore` と二重防御で書く(Capacitor がアップグレードで上書きするため)。
+ios/App/Pods/
+ios/App/build/
+ios/App/output/
+ios/App/App/public/
+ios/App/App/capacitor.config.json
+ios/App/App/config.xml
+ios/App/App.xcworkspace/xcuserdata/
+ios/App/App.xcodeproj/xcuserdata/
+ios/App/App.xcodeproj/project.xcworkspace/xcuserdata/
+ios/capacitor-cordova-ios-plugins/
+ios/DerivedData/
+
+# Capacitor (Android) — Gradle ビルド成果物 + `cap sync` でコピーされる web assets。
+android/.gradle/
+android/build/
+android/app/build/
+android/app/.cxx/
+android/app/.externalNativeBuild/
+android/captures/
+android/local.properties
+android/**/*.iml
+android/**/*.apk
+android/**/*.ap_
+android/**/*.aab
+android/**/*.aar
+android/**/*.dex
+android/**/*.class
+android/app/release/
+android/app/debug/
+android/app/outputs/
+android/app/lint/intermediates/
+android/app/lint/generated/
+android/app/lint/outputs/
+android/app/lint/tmp/
+android/app/src/main/assets/public/
+android/app/src/main/assets/capacitor.config.json
+android/app/src/main/assets/capacitor.plugins.json
+android/app/src/main/res/xml/config.xml
+android/capacitor-cordova-android-plugins/
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

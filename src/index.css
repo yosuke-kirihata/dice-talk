@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Color tokens */
+    --color-primary: #7c3aed;
+    --color-primary-dark: #6d28d9;
+    --color-primary-deep: #5b21b6;
+    --color-primary-soft: #ede9fe;
+    --color-primary-pale: #f4f1ff;
+    --color-primary-border: #ddd6fe;
+    --color-primary-border-strong: #c4b5fd;
+    --color-focus: #ffd43d;
+    --color-danger: #ef4444;
+    --color-danger-dark: #dc2626;
+    --color-danger-soft: #fff1f2;
+    --color-danger-border: #fecaca;
+    --color-text: #111827;
+    --color-text-strong: #0f172a;
+    --color-text-muted: #334155;
+    --color-text-subtle: #64748b;
+    --color-text-faint: #94a3b8;
+    --color-surface: #ffffff;
+    --color-surface-soft: #f8fafc;
+    --color-surface-tinted: #fbfcff;
+    --color-surface-cool: #f8fbff;
+    --color-border-soft: #edf0f5;
+    --color-border-mute: #eef2f7;
+    --color-border: #e2e8f0;
+
+    /* Motion tokens */
+    --transition-fast: 160ms ease;
+    --transition-base: 180ms ease;
+    --transition-slow: 220ms ease;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html,
+  body,
+  #root {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  html {
+    color-scheme: light;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: "Noto Sans JP", -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--color-text);
+    background: #ffffff;
+    overscroll-behavior: none;
+    overflow: hidden;
+  }
+
+  button {
+    font: inherit;
+    color: inherit;
+  }
+
+  /* Global focus ring — zero-specificity so individual styles can still opt out. */
+  :where(
+      button,
+      [role="button"],
+      [role="tab"],
+      [role="radio"],
+      a,
+      input,
+      select,
+      textarea,
+      summary,
+      [tabindex]
+    ):focus-visible {
+    outline: 3px solid var(--color-focus);
+    outline-offset: 3px;
+  }
+}

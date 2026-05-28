@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="dice-talk">
+  <defs>
+    <linearGradient id="top" x1="18" x2="46" y1="12" y2="26" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f4d7ff"/>
+      <stop offset="1" stop-color="#d9c2ff"/>
+    </linearGradient>
+    <linearGradient id="left" x1="14" x2="34" y1="25" y2="52" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#c7a7ff"/>
+      <stop offset="1" stop-color="#a985f5"/>
+    </linearGradient>
+    <linearGradient id="right" x1="34" x2="52" y1="25" y2="52" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9fe9ff"/>
+      <stop offset="1" stop-color="#6cccf0"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="#fff"/>
+  <ellipse cx="32" cy="51" rx="23" ry="9" fill="#111c38" opacity=".92"/>
+  <path fill="url(#top)" d="M32 9 13 20l19 11 19-11L32 9Z"/>
+  <path fill="url(#left)" d="M13 20v23l19 12V31L13 20Z"/>
+  <path fill="url(#right)" d="M51 20v23L32 55V31l19-11Z"/>
+  <path fill="#fff" d="m32 9 19 11-19 11-19-11L32 9Z" opacity=".18"/>
+</svg>
