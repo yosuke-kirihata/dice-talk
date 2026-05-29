@@ -1,7 +1,7 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import type { AudioCuePlayer } from '../player/audioCuePlayer';
 import { type AudioCueConfig, DEFAULT_AUDIO_CUE_CONFIG } from '../model/audioCueConfig';
+import type { AudioCuePlayer } from '../player/audioCuePlayer';
 import type { AudioFileStore, SavedAudio } from '../storage/webAudioFileStore';
 import { AudioCueSection } from './AudioCueSection';
 
@@ -48,7 +48,10 @@ describe('AudioCueSection', () => {
 
   it('renders audio file input and config controls', () => {
     renderSection();
-    expect(screen.getByLabelText(/音声ファイル/)).toHaveAttribute('accept', 'audio/*');
+    expect(screen.getByLabelText(/音声ファイル/)).toHaveAttribute(
+      'accept',
+      expect.stringContaining('.mp3'),
+    );
     expect(screen.getByLabelText(/効果音 有効/)).toBeInTheDocument();
     expect(screen.getByLabelText(/音声 開始位置/)).toBeInTheDocument();
     expect(screen.getByLabelText(/音声 終了位置/)).toBeInTheDocument();

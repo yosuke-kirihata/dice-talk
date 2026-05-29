@@ -112,6 +112,20 @@ describe('WebAudioFileStore', () => {
     await expect(new WebAudioFileStore().save(file)).rejects.toThrow('Unsupported audio type');
   });
 
+  it('accepts iOS files with an empty MIME type when the extension is supported', async () => {
+    const db = new DbMock();
+    installIndexedDbMock(db);
+    const file = new File(['abc'], 'cue.m4a', { type: '' });
+
+    await expect(new WebAudioFileStore().save(file)).resolves.toEqual({
+      id: 'audio.cue.v1',
+      url: 'blob:cue',
+      mimeType: 'audio/x-m4a',
+      name: 'cue.m4a',
+      sizeBytes: 3,
+    });
+  });
+
   it('loads and deletes the fixed cue record', async () => {
     const db = new DbMock();
     installIndexedDbMock(db);

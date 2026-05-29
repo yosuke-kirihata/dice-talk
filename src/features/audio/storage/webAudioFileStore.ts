@@ -37,6 +37,22 @@ const ALLOWED_AUDIO_MIME_TYPES = new Set([
   'audio/webm',
   'audio/x-m4a',
 ]);
+const AUDIO_EXTENSION_MIME_TYPES = new Map([
+  ['aac', 'audio/aac'],
+  ['flac', 'audio/flac'],
+  ['m4a', 'audio/x-m4a'],
+  ['mp3', 'audio/mpeg'],
+  ['ogg', 'audio/ogg'],
+  ['wav', 'audio/wav'],
+  ['webm', 'audio/webm'],
+]);
+
+const getSupportedAudioMimeType = (file: File): string | null => {
+  if (ALLOWED_AUDIO_MIME_TYPES.has(file.type)) return file.type;
+  const extension = file.name.split('.').pop()?.toLowerCase();
+  if (!extension) return null;
+  return AUDIO_EXTENSION_MIME_TYPES.get(extension) ?? null;
+};
 
 const requestToPromise = <T>(request: IDBRequest<T>): Promise<T> =>
   new Promise((resolve, reject) => {
@@ -70,14 +86,15 @@ export class WebAudioFileStore implements AudioFileStore {
     if (file.size > MAX_AUDIO_FILE_SIZE_BYTES) {
       throw new Error('Audio cue must be 20MB or smaller');
     }
-    if (!ALLOWED_AUDIO_MIME_TYPES.has(file.type)) {
+    const mimeType = getSupportedAudioMimeType(file);
+    if (!mimeType) {
       throw new Error(`Unsupported audio type: ${file.type || 'unknown'}`);
     }
     const db = await openDb();
     const record: StoredAudioRecord = {
       id: FIXED_KEY,
       blob: file,
-      mimeType: file.type,
+      mimeType,
       name: file.name,
       sizeBytes: file.size,
     };

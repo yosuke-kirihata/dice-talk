@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import type { AudioCuePlayer } from '../player/audioCuePlayer';
 import { type AudioCueConfig, validateAudioCueConfig } from '../model/audioCueConfig';
 import { MAX_AUDIO_FILE_SIZE_BYTES } from '../model/audioFileLimits';
 import { formatMinSec, parseMinSec } from '../model/minSecTime';
+import type { AudioCuePlayer } from '../player/audioCuePlayer';
 import type { AudioFileStore, SavedAudio } from '../storage/webAudioFileStore';
 
 /** 動作設定パネル内に表示する、効果音編集セクションの props。 */
@@ -140,7 +140,7 @@ export const AudioCueSection = ({
           id="audio-cue-file"
           ref={fileInputRef}
           type="file"
-          accept="audio/*"
+          accept=".aac,.flac,.m4a,.mp3,.ogg,.wav,.webm,audio/aac,audio/flac,audio/m4a,audio/mp3,audio/mp4,audio/mpeg,audio/ogg,audio/wav,audio/webm,audio/x-m4a"
           aria-label="音声ファイル"
           onChange={handleFile}
           className="audio-cue__file-input"
